@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundraising - BizzBlock</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" id="navbar__logo">BizzBlock</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="index.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="about.html" class="navbar__links">About Us</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="projects.html" class="navbar__links">Projects</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="fundraising.html" class="navbar__links">Fundraising</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#" class="navbar__links">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-header__title">Start a New Fundraising Project</h1>
+        </div>
+    </header>
+
+    <section class="fundraising">
+        <div class="container">
+            <h2 class="section__title">Create Your Project</h2>
+            <form id="projectForm" class="fundraising__form">
+                <div class="form-group">
+                    <label for="companyName">Company Name:</label>
+                    <input type="text" id="companyName" name="companyName" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectDescription">Project Description:</label>
+                    <textarea id="projectDescription" name="projectDescription" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="amountNeeded">Amount Needed ($):</label>
+                    <input type="number" id="amountNeeded" name="amountNeeded" required>
+                </div>
+                <div class="form-group">
+                    <label for="dueDate">Due Date:</label>
+                    <input type="date" id="dueDate" name="dueDate" required>
+                </div>
+                <button type="submit" class="fundraising__cta">Create Project</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__links">
+                <a href="#" class="footer__link">Terms of Service</a>
+                <a href="#" class="footer__link">Privacy Policy</a>
+                <a href="#" class="footer__link">Contact</a>
+            </div>
+            <p class="footer__text">&copy; 2024 BizzBlock. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('projectForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const companyName = document.getElementById('companyName').value;
+            const projectDescription = document.getElementById('projectDescription').value;
+            const amountNeeded = document.getElementById('amountNeeded').value;
+            const dueDate = document.getElementById('dueDate').value;
+
+            const project = {
+                companyName,
+                projectDescription,
+                amountNeeded,
+                dueDate
+            };
+
+            let projects = localStorage.getItem('projects');
+            if (projects) {
+                projects = JSON.parse(projects);
+            } else {
+                projects = [];
+            }
+
+            projects.push(project);
+            localStorage.setItem('projects', JSON.stringify(projects));
+
+            alert('Project created successfully!');
+            document.getElementById('projectForm').reset();
+        });
+    </script>
+</body>
+</html>
+

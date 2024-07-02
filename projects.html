@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - BizzBlock</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" id="navbar__logo">BizzBlock</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="/frontpage.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="about.html" class="navbar__links">About Us</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="projects.html" class="navbar__links">Projects</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="fundraising.html" class="navbar__links">Fundraising</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#" class="navbar__links">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-header__title">Our Projects</h1>
+        </div>
+    </header>
+
+    <section class="projects">
+        <div class="container">
+            <h2 class="section__title">Featured Projects</h2>
+            <div class="project__grid" id="projectGrid">
+                <!-- Projects will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__links">
+                <a href="#" class="footer__link">Terms of Service</a>
+                <a href="#" class="footer__link">Privacy Policy</a>
+                <a href="#" class="footer__link">Contact</a>
+            </div>
+            <p class="footer__text">&copy; 2024 BizzBlock. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let projects = localStorage.getItem('projects');
+            if (projects) {
+                projects = JSON.parse(projects);
+                const projectGrid = document.getElementById('projectGrid');
+
+                projects.forEach(project => {
+                    const projectElement = document.createElement('div');
+                    projectElement.classList.add('project');
+                    
+                    projectElement.innerHTML = `
+                        <h3 class="project__title">${project.companyName}</h3>
+                        <p class="project__description">${project.projectDescription}</p>
+                        <p><strong>Amount Needed:</strong> $${project.amountNeeded}</p>
+                        <p><strong>Due Date:</strong> ${project.dueDate}</p>
+                    `;
+                    
+                    projectGrid.appendChild(projectElement);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

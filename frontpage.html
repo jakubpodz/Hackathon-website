@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizzBlock - Fundraising Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <img src="/photos/logo.jpg"  class="logo">
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="#" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/about.html" class="navbar__links">About Us</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/projects.html" class="navbar__links">Projects</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/fundraising.html" class="navbar__links">Fundraising</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#" class="navbar__links">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1 class="hero__title">Empowering Innovation Through Fundraising</h1>
+            <p class="hero__subtitle">Join the blockchain revolution in funding and bring your projects to life with BizzBlock</p>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <div class="feature">
+                <h2 class="feature__title">For Companies</h2>
+                <p class="feature__text">Easily request and manage fundraising for your projects, and connect with a global network of investors.</p>
+            </div>
+            <div class="feature">
+                <h2 class="feature__title">For Investors</h2>
+                <p class="feature__text">Discover innovative projects and support the next big ideas while tracking your investments seamlessly.</p>
+            </div>
+            <div class="feature">
+                <h2 class="feature__title">Secure & Transparent</h2>
+                <p class="feature__text">Our blockchain technology ensures all transactions are secure, transparent, and tamper-proof.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects">
+        <div class="container">
+            <h2 class="section__title">Featured Projects</h2>
+            <div class="project__grid">
+                <div class="project">
+                    <h3 class="project__title">Project One</h3>
+                    <p class="project__description">An innovative solution to a common problem, seeking funding to reach new heights.</p>
+                    <a href="#" class="project__link">Learn More</a>
+                </div>
+                <div class="project">
+                    <h3 class="project__title">Project Two</h3>
+                    <p class="project__description">A groundbreaking project aiming to make a significant impact, open for investment now.</p>
+                    <a href="#" class="project__link">Learn More</a>
+                </div>
+                <div class="project">
+                    <h3 class="project__title">Project Three</h3>
+                    <p class="project__description">Transformative technology that promises to change the industry, currently fundraising.</p>
+                    <a href="#" class="project__link">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__links">
+                <a href="#" class="footer__link">Terms of Service</a>
+                <a href="#" class="footer__link">Privacy Policy</a>
+                <a href="#" class="footer__link">Contact</a>
+            </div>
+            <p class="footer__text">&copy; 2024 BizzBlock. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navbarMenu = document.querySelector('.navbar__menu');
+
+        mobileMenu.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

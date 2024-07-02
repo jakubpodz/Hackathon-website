@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - BizzBlock</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <img src="/photos/logo.jpg"  class="logo">
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="frontpage.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="about.html" class="navbar__links">About Us</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/projects.html" class="navbar__links">Projects</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/fundraising.html" class="navbar__links">Fundraising</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#" class="navbar__links">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-header__title">About Us</h1>
+        </div>
+    </header>
+
+    <section class="about">
+        <div class="container">
+            <h2 class="section__title">Our Mission</h2>
+            <p class="about__text">BizzBlock is a new gen, blockchain empowered B2C platform that provides both small and large businesses to better display their products and services to the consumers 
+                on a single platform. BizzBlock aims to host companies who provide services ranging from plumbing, AC repair to hair cut and massages at the comfort of your home. We also aim to provide 
+                small businesses a platform to run crowdfunding campaigns which will help them improve and expand their business to new horizons.</p>
+        </div>
+    </section>
+
+    <section class="team">
+        <div class="container">
+            <h2 class="section__title">Meet Our Team</h2>
+            <div class="team__grid">
+                <div class="team__member">
+                    <img src="team1.jpg" alt="Team Member 1" class="team__photo">
+                    <h3 class="team__name">Jakub Podziewski</h3>
+                    <p class="team__role">CEO</p>
+                    <p class="team__bio">expert in blockchain technology with a MSc in Fintech.</p>
+                </div>
+                <div class="team__member">
+                    <img src="team2.jpg" alt="Team Member 2" class="team__photo">
+                    <h3 class="team__name">Vasu Chaudhary</h3>
+                    <p class="team__role">CTO</p>
+                    <p class="team__bio">...</p>
+                </div>
+                <div class="team__member">
+                    <img src="team3.jpg" alt="Team Member 3" class="team__photo">
+                    <h3 class="team__name">Alice Johnson</h3>
+                    <p class="team__role">CFO</p>
+                    <p class="team__bio">Alice brings a wealth of financial expertise to our team, ensuring sound fiscal management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__links">
+                <a href="#" class="footer__link">Terms of Service</a>
+                <a href="#" class="footer__link">Privacy Policy</a>
+                <a href="#" class="footer__link">Contact</a>
+            </div>
+            <p class="footer__text">&copy; 2024 BizzBlock. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navbarMenu = document.querySelector('.navbar__menu');
+
+        mobileMenu.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
