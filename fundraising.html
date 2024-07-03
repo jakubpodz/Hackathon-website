@@ -9,7 +9,9 @@
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="/" id="navbar__logo">BizzBlock</a>
+            <a href="frontpage.html" class="navbar__logo">
+                <img src="/photos/logo.jpg" alt="BizzBlock Logo" class="logo">
+            </a>
             <div class="navbar__toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -17,7 +19,7 @@
             </div>
             <ul class="navbar__menu">
                 <li class="navbar__item">
-                    <a href="index.html" class="navbar__links">Home</a>
+                    <a href="frontpage.html" class="navbar__links">Home</a>
                 </li>
                 <li class="navbar__item">
                     <a href="about.html" class="navbar__links">About Us</a>
@@ -37,32 +39,15 @@
 
     <header class="page-header">
         <div class="container">
-            <h1 class="page-header__title">Start a New Fundraising Project</h1>
+            <h1 class="page-header__title">Fundraising</h1>
         </div>
     </header>
 
     <section class="fundraising">
         <div class="container">
-            <h2 class="section__title">Create Your Project</h2>
-            <form id="projectForm" class="fundraising__form">
-                <div class="form-group">
-                    <label for="companyName">Company Name:</label>
-                    <input type="text" id="companyName" name="companyName" required>
-                </div>
-                <div class="form-group">
-                    <label for="projectDescription">Project Description:</label>
-                    <textarea id="projectDescription" name="projectDescription" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="amountNeeded">Amount Needed ($):</label>
-                    <input type="number" id="amountNeeded" name="amountNeeded" required>
-                </div>
-                <div class="form-group">
-                    <label for="dueDate">Due Date:</label>
-                    <input type="date" id="dueDate" name="dueDate" required>
-                </div>
-                <button type="submit" class="fundraising__cta">Create Project</button>
-            </form>
+            <div class="fundraising__content">
+                <a href="campaign_creation.html" class="fundraising__button">Start Campaign</a>
+            </div>
         </div>
     </section>
 
@@ -78,35 +63,14 @@
     </footer>
 
     <script>
-        document.getElementById('projectForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navbarMenu = document.querySelector('.navbar__menu');
 
-            const companyName = document.getElementById('companyName').value;
-            const projectDescription = document.getElementById('projectDescription').value;
-            const amountNeeded = document.getElementById('amountNeeded').value;
-            const dueDate = document.getElementById('dueDate').value;
-
-            const project = {
-                companyName,
-                projectDescription,
-                amountNeeded,
-                dueDate
-            };
-
-            let projects = localStorage.getItem('projects');
-            if (projects) {
-                projects = JSON.parse(projects);
-            } else {
-                projects = [];
-            }
-
-            projects.push(project);
-            localStorage.setItem('projects', JSON.stringify(projects));
-
-            alert('Project created successfully!');
-            document.getElementById('projectForm').reset();
+        mobileMenu.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
         });
     </script>
 </body>
 </html>
+
 

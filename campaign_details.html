@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - BizzBlock</title>
+    <title>Campaign Details - BizzBlock</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -39,15 +39,14 @@
 
     <header class="page-header">
         <div class="container">
-            <h1 class="page-header__title">Our Projects</h1>
+            <h1 class="page-header__title">Campaign Details</h1>
         </div>
     </header>
 
-    <section class="projects">
+    <section class="campaign-details">
         <div class="container">
-            <h2 class="section__title">Featured Projects</h2>
-            <div class="project__grid" id="projectGrid">
-                <!-- Projects will be loaded here by JavaScript -->
+            <div id="campaignContent">
+                <!-- Campaign details will be loaded here by JavaScript -->
             </div>
         </div>
     </section>
@@ -65,27 +64,30 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const campaignId = urlParams.get('id');
             let campaigns = localStorage.getItem('campaigns');
             if (campaigns) {
                 campaigns = JSON.parse(campaigns);
-                const projectGrid = document.getElementById('projectGrid');
-
-                campaigns.forEach((campaign, index) => {
-                    const projectElement = document.createElement('div');
-                    projectElement.classList.add('project');
-                    
-                    projectElement.innerHTML = `
-                        <h3 class="project__title"><a href="campaign_details.html?id=${index}">${campaign.campaignTitle}</a></h3>
-                        <p class="project__description">${campaign.shortDescription}</p>
-                        <p><strong>Funding Goal:</strong> $${campaign.fundingGoal}</p>
-                        <p><strong>Duration:</strong> ${campaign.campaignDuration} days</p>
-                    `;
-                    
-                    projectGrid.appendChild(projectElement);
-                });
-            }
-        });
-    </script>
-</body>
-</html>
-
+                const campaign = campaigns[campaignId];
+                const campaignContent = document.getElementById('campaignContent');
+                
+                campaignContent.innerHTML = `
+                    <h2>${campaign.campaignTitle}</h2>
+                    <p><strong>Category:</strong> ${campaign.category}</p>
+                    <p><strong>Location:</strong> ${campaign.location}</p>
+                    <p><strong>Funding Goal:</strong> $${campaign.fundingGoal}</p>
+                    <p><strong>Duration:</strong> ${campaign.campaignDuration} days</p>
+                    <p><strong>Short Description:</strong> ${campaign.shortDescription}</p>
+                    <p><strong>Long Description:</strong> ${campaign.longDescription}</p>
+                    <img src="${campaign.mainImage}" alt="${campaign.campaignTitle}">
+                    <p><strong>Gallery:</strong></p>
+                    ${campaign.gallery.split(',').map(url => `<img src="${url.trim()}" alt="Gallery Image">`).join('')}
+                    <p><strong>Video:</strong> <a href="${campaign.video}" target="_blank">Watch Video</a></p>
+                    <p><strong>Rewards:</strong></p>
+                    <ul>
+                        ${JSON.parse(campaign.rewardTiers).map(reward => `<li><strong>${reward.rewardName}</strong>: ${reward.description} - $${reward.pledgeAmount} (Delivery: ${reward.estimatedDeliveryDate}, Limit: ${reward.limitations})</li>`).join('')}
+                    </ul>
+                    <p><strong>Team:</strong></p>
+                    <ul>
+                        ${JSON.parse(campaign.teamMembers).map(member => `<li><strong>${member.name}</strong> (${member.role}

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign Creation - BizzBlock</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="frontpage.html" class="navbar__logo">
+                <img src="/photos/logo.jpg" alt="BizzBlock Logo" class="logo">
+            </a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="frontpage.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="about.html" class="navbar__links">About Us</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="projects.html" class="navbar__links">Projects</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="fundraising.html" class="navbar__links">Fundraising</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#" class="navbar__links">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-header__title">Create Your Campaign</h1>
+        </div>
+    </header>
+
+    <section class="campaign-creation">
+        <div class="container">
+            <h2 class="section__title">Campaign Details</h2>
+            <form id="campaignForm" class="campaign__form">
+                <!-- Basic Information -->
+                <div class="form-group">
+                    <label for="campaignTitle">Campaign Title:</label>
+                    <input type="text" id="campaignTitle" name="campaignTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <input type="text" id="category" name="category" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+
+                <!-- Campaign Details -->
+                <div class="form-group">
+                    <label for="fundingGoal">Funding Goal ($):</label>
+                    <input type="number" id="fundingGoal" name="fundingGoal" required>
+                </div>
+                <div class="form-group">
+                    <label for="campaignDuration">Campaign Duration (days):</label>
+                    <input type="number" id="campaignDuration" name="campaignDuration" required>
+                </div>
+
+                <!-- Description -->
+                <div class="form-group">
+                    <label for="shortDescription">Short Description:</label>
+                    <textarea id="shortDescription" name="shortDescription" rows="2" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="longDescription">Long Description:</label>
+                    <textarea id="longDescription" name="longDescription" rows="6" required></textarea>
+                </div>
+
+                <!-- Media -->
+                <div class="form-group">
+                    <label for="mainImage">Main Image URL:</label>
+                    <input type="url" id="mainImage" name="mainImage" required>
+                </div>
+                <div class="form-group">
+                    <label for="gallery">Gallery Image URLs (comma separated):</label>
+                    <textarea id="gallery" name="gallery" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="video">Video URL:</label>
+                    <input type="url" id="video" name="video">
+                </div>
+
+                <!-- Rewards -->
+                <div class="form-group">
+                    <label for="rewardTiers">Reward Tiers (JSON format):</label>
+                    <textarea id="rewardTiers" name="rewardTiers" rows="4" placeholder='[{"rewardName": "Example", "description": "Example", "pledgeAmount": 50, "estimatedDeliveryDate": "2023-12-31", "limitations": 100}]'></textarea>
+                </div>
+
+                <!-- Team -->
+                <div class="form-group">
+                    <label for="teamMembers">Team Members (JSON format):</label>
+                    <textarea id="teamMembers" name="teamMembers" rows="4" placeholder='[{"name": "Example", "role": "Example", "bio": "Example", "photo": "example.jpg"}]'></textarea>
+                </div>
+
+                <!-- Financials -->
+                <div class="form-group">
+                    <label for="budget">Budget (JSON format):</label>
+                    <textarea id="budget" name="budget" rows="4" placeholder='{"item1": 1000, "item2": 2000}'></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="previousWork">Previous Work:</label>
+                    <textarea id="previousWork" name="previousWork" rows="4"></textarea>
+                </div>
+
+                <!-- Risks and Challenges -->
+                <div class="form-group">
+                    <label for="risks">Potential Risks:</label>
+                    <textarea id="risks" name="risks" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="mitigationStrategies">Mitigation Strategies:</label>
+                    <textarea id="mitigationStrategies" name="mitigationStrategies" rows="4"></textarea>
+                </div>
+
+                <!-- Legal -->
+                <div class="form-group">
+                    <label for="legalDisclosures">Legal Disclosures:</label>
+                    <textarea id="legalDisclosures" name="legalDisclosures" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="terms">Terms and Conditions:</label>
+                    <textarea id="terms" name="terms" rows="2"></textarea>
+                </div>
+
+                <!-- Communication -->
+                <div class="form-group">
+                    <label for="updates">Updates Commitment:</label>
+                    <textarea id="updates" name="updates" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="contactInformation">Contact Information:</label>
+                    <input type="email" id="contactInformation" name="contactInformation" required>
+                </div>
+
+                <!-- Social Media and Marketing -->
+                <div class="form-group">
+                    <label for="socialMediaLinks">Social Media Links (comma separated):</label>
+                    <textarea id="socialMediaLinks" name="socialMediaLinks" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="website">Website:</label>
+                    <input type="url" id="website" name="website">
+                </div>
+
+                <button type="submit" class="campaign__cta">Create Campaign</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__links">
+                <a href="#" class="footer__link">Terms of Service</a>
+                <a href="#" class="footer__link">Privacy Policy</a>
+                <a href="#" class="footer__link">Contact</a>
+            </div>
+            <p class="footer__text">&copy; 2024 BizzBlock. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('campaignForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const campaignTitle = document.getElementById('campaignTitle').value;
+            const category = document.getElementById('category').value;
+            const location = document.getElementById('location').value;
+            const fundingGoal = document.getElementById('fundingGoal').value;
+            const campaignDuration = document.getElementById('campaignDuration').value;
+            const shortDescription = document.getElementById('shortDescription').value;
+            const longDescription = document.getElementById('longDescription').value;
+            const mainImage = document.getElementById('mainImage').value;
+            const gallery = document.getElementById('gallery').value;
+            const video = document.getElementById('video').value;
+            const rewardTiers = document.getElementById('rewardTiers').value;
+            const teamMembers = document.getElementById('teamMembers').value;
+            const budget = document.getElementById('budget').value;
+            const previousWork = document.getElementById('previousWork').value;
+            const risks = document.getElementById('risks').value;
+            const mitigationStrategies = document.getElementById('mitigationStrategies').value;
+            const legalDisclosures = document.getElementById('legalDisclosures').value;
+            const terms = document.getElementById('terms').value;
+            const updates = document.getElementById('updates').value;
+            const contactInformation = document.getElementById('contactInformation').value;
+            const socialMediaLinks = document.getElementById('socialMediaLinks').value;
+            const website = document.getElementById('website').value;
+
+            const campaign = {
+                campaignTitle,
+                category,
+                location,
+                fundingGoal,
+                campaignDuration,
+                shortDescription,
+                longDescription,
+                mainImage,
+                gallery,
+                video,
+                rewardTiers,
+                teamMembers,
+                budget,
+                previousWork,
+                risks,
+                mitigationStrategies,
+                legalDisclosures,
+                terms,
+                updates,
+                contactInformation,
+                socialMediaLinks,
+                website
+            };
+
+            let campaigns = localStorage.getItem('campaigns');
+            if (campaigns) {
+                campaigns = JSON.parse(campaigns);
+            } else {
+                campaigns = [];
+            }
+
+            campaigns.push(campaign);
+            localStorage.setItem('campaigns', JSON.stringify(campaigns));
+
+            alert('Campaign created successfully!');
+            document.getElementById('campaignForm').reset();
+        });
+    </script>
+</body>
+</html>
